@@ -1,6 +1,30 @@
 {
-  "generatedAt": "2026-06-10T03:19:03.839Z",
+  "generatedAt": "2026-06-10T03:40:37.238Z",
   "artists": [
+    {
+      "name": "The Hold Steady",
+      "spotifyId": "3qkZBMz5JgmRN9u5wwhRC6",
+      "shows": [
+        {
+          "artist": "The Hold Steady",
+          "venue": "Thalia Hall",
+          "date": "2026-06-11",
+          "url": "https://www.thaliahallchicago.com/shows"
+        },
+        {
+          "artist": "The Hold Steady",
+          "venue": "Empty Bottle",
+          "date": "2026-06-12",
+          "url": "https://www.emptybottle.com/"
+        },
+        {
+          "artist": "The Hold Steady",
+          "venue": "Salt Shed",
+          "date": "2026-06-13",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
     {
       "name": "Jane Remover",
       "spotifyId": "2rLGlNI6htigNxx172qxLu",
@@ -9,13 +33,73 @@
           "artist": "Jane Remover",
           "venue": "Metro Chicago",
           "date": "2026-06-12",
-          "url": "https://metrochicago.com/events/"
+          "url": "https://metrochicago.com/event/jane-remover/metro-chicago/chicago-illinois/"
         },
         {
           "artist": "Jane Remover",
           "venue": "Metro Chicago",
           "date": "2026-06-13",
-          "url": "https://metrochicago.com/events/"
+          "url": "https://metrochicago.com/event/jane-remover/metro-chicago/chicago-illinois/"
+        }
+      ]
+    },
+    {
+      "name": "Built To Spill",
+      "spotifyId": "3kbBWco9PZ5eSQsNScwG6U",
+      "shows": [
+        {
+          "artist": "Built to Spill",
+          "venue": "Salt Shed",
+          "date": "2026-06-13",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
+    {
+      "name": "Titus Andronicus",
+      "spotifyId": "5lJ4XQ2hlPlxACN7q3xKL1",
+      "shows": [
+        {
+          "artist": "Titus Andronicus",
+          "venue": "Salt Shed",
+          "date": "2026-06-13",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
+    {
+      "name": "Bully",
+      "spotifyId": "34LdbFt5sVXKTJOzf1iExQ",
+      "shows": [
+        {
+          "artist": "Bully",
+          "venue": "Salt Shed",
+          "date": "2026-06-13",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
+    {
+      "name": "Amyl and The Sniffers",
+      "spotifyId": "3NqV2DJoAWsjl787bWaHW7",
+      "shows": [
+        {
+          "artist": "Amyl and the Sniffers",
+          "venue": "Salt Shed",
+          "date": "2026-06-14",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
+    {
+      "name": "Party Dozen",
+      "spotifyId": "5LeiYFiAx31mpoPKxdOLOm",
+      "shows": [
+        {
+          "artist": "Party Dozen",
+          "venue": "Salt Shed",
+          "date": "2026-06-14",
+          "url": "https://www.saltshedchicago.com/"
         }
       ]
     },
@@ -27,6 +111,96 @@
           "artist": "Deer Tick",
           "venue": "Thalia Hall",
           "date": "2026-06-16",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Jobi Riccio",
+      "spotifyId": "0iBeDti8V9DLGVPA2xHMeO",
+      "shows": [
+        {
+          "artist": "Jobi Riccio",
+          "venue": "Thalia Hall",
+          "date": "2026-06-16",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "The Hotelier",
+      "spotifyId": "3kzNckjE5FzHQhe4pJiLKa",
+      "shows": [
+        {
+          "artist": "The Hotelier",
+          "venue": "Lincoln Hall",
+          "date": "2026-06-18",
+          "url": "https://lh-st.com/shows/06-18-2026-the-hotelier/"
+        },
+        {
+          "artist": "The Hotelier",
+          "venue": "Lincoln Hall",
+          "date": "2026-06-19",
+          "url": "https://lh-st.com/shows/06-19-2026-the-hotelier/"
+        }
+      ]
+    },
+    {
+      "name": "The Ophelias",
+      "spotifyId": "0Kpf7PvEotzvndPhYwwZzb",
+      "shows": [
+        {
+          "artist": "The Ophelias",
+          "venue": "Lincoln Hall",
+          "date": "2026-06-19",
+          "url": "https://lh-st.com/shows/06-19-2026-the-hotelier/"
+        }
+      ]
+    },
+    {
+      "name": "Prewn",
+      "spotifyId": "1Sm5PqM25CcIBtKSvZz9iS",
+      "shows": [
+        {
+          "artist": "Prewn",
+          "venue": "Schubas Tavern",
+          "date": "2026-06-20",
+          "url": "https://lh-st.com/shows/06-20-2026-prewn/"
+        }
+      ]
+    },
+    {
+      "name": "Tigers Jaw",
+      "spotifyId": "0tLaqkKW7K6tc3QF9SM0M8",
+      "shows": [
+        {
+          "artist": "Tigers Jaw",
+          "venue": "Thalia Hall",
+          "date": "2026-06-21",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Pool Kids",
+      "spotifyId": "6yoW6SfviQ5D4Wa5jGxh7f",
+      "shows": [
+        {
+          "artist": "Pool Kids",
+          "venue": "Thalia Hall",
+          "date": "2026-06-21",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Bleary Eyed",
+      "spotifyId": "0JTGTWQ2CBQlQtAHb8zMWS",
+      "shows": [
+        {
+          "artist": "Bleary Eyed",
+          "venue": "Thalia Hall",
+          "date": "2026-06-21",
           "url": "https://www.thaliahallchicago.com/shows"
         }
       ]
@@ -44,6 +218,18 @@
       ]
     },
     {
+      "name": "Dark Thoughts",
+      "spotifyId": "7f5aAh94T4mdR5T8GxfTOE",
+      "shows": [
+        {
+          "artist": "Dark Thoughts",
+          "venue": "Empty Bottle",
+          "date": "2026-06-23",
+          "url": "https://www.emptybottle.com/"
+        }
+      ]
+    },
+    {
       "name": "Kurt Vile",
       "spotifyId": "5gspAQIAH8nJUrMYgXjCJ2",
       "shows": [
@@ -52,6 +238,102 @@
           "venue": "Salt Shed",
           "date": "2026-06-26",
           "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
+    {
+      "name": "The Sadies",
+      "spotifyId": "3x0LgZSPgNh91O6NBMtqTs",
+      "shows": [
+        {
+          "artist": "The Sadies",
+          "venue": "Salt Shed",
+          "date": "2026-06-26",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    },
+    {
+      "name": "Jhariah",
+      "spotifyId": "5iMYu8Sj8dZEDsWJxSFwPP",
+      "shows": [
+        {
+          "artist": "Jhariah",
+          "venue": "Beat Kitchen",
+          "date": "2026-06-30",
+          "url": "https://www.beatkitchen.com/calendar/"
+        }
+      ]
+    },
+    {
+      "name": "tenmonthsummer",
+      "spotifyId": "2jx2RBKuffYiRLX3q9d253",
+      "shows": [
+        {
+          "artist": "tenmonthsummer",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://www.beatkitchen.com/calendar/"
+        }
+      ]
+    },
+    {
+      "name": "Palette Knife",
+      "spotifyId": "2NjNeRA9xtah9fJGCQOxNf",
+      "shows": [
+        {
+          "artist": "Palette Knife",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://www.beatkitchen.com/calendar/"
+        }
+      ]
+    },
+    {
+      "name": "Mud Whale",
+      "spotifyId": "6kvtwZKMwZZopBGqlHZPNE",
+      "shows": [
+        {
+          "artist": "Mud Whale",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://www.beatkitchen.com/calendar/"
+        }
+      ]
+    },
+    {
+      "name": "Arcadia Grey",
+      "spotifyId": "0jVOavowJ5X4ooKXX5PcM1",
+      "shows": [
+        {
+          "artist": "Arcadia Grey",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://www.beatkitchen.com/calendar/"
+        }
+      ]
+    },
+    {
+      "name": "Bottom Bracket",
+      "spotifyId": "7n7y0AnByWuVtJbx99EYyw",
+      "shows": [
+        {
+          "artist": "Bottom Bracket",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://www.beatkitchen.com/calendar/"
+        }
+      ]
+    },
+    {
+      "name": "The Church",
+      "spotifyId": "2ZfogSsOWP4mVfEqfpLXCt",
+      "shows": [
+        {
+          "artist": "The Church",
+          "venue": "Park West",
+          "date": "2026-07-07",
+          "url": "https://www.parkwestchicago.com/"
         }
       ]
     }
