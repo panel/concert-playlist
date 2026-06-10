@@ -13,7 +13,7 @@ import { exec } from 'node:child_process';
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const PORT = 8888;
-const REDIRECT_URI = `http://localhost:${PORT}/callback`;
+const REDIRECT_URI = `http://127.0.0.1:${PORT}/callback`;
 
 // Scopes required by the agent
 const SCOPES = [
