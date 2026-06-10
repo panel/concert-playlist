@@ -21,7 +21,7 @@ import type { ArtistEntry, Show } from './site.js';
 
 const PLAYLIST_NAME = '🎸 Chicago Shows';
 const TRACKS_PER_ARTIST = 3;
-const MAX_PLAYLIST_TRACKS = 50;
+const MAX_PLAYLIST_TRACKS = 100; // Spotify's PUT replace endpoint accepts at most 100 URIs
 const MAX_AGENT_ITERATIONS = 20; // safety ceiling for the agentic loop
 // Hard cap enforced server-side via the tool's max_uses. Overridable without a
 // code change: set the MAX_WEB_SEARCHES repo Actions variable (or env var locally).
