@@ -147,7 +147,10 @@ If no matches are found, return an empty array: []`;
   console.log('🤖 Starting Anthropic agentic loop...');
 
   for (let i = 0; i < MAX_AGENT_ITERATIONS; i++) {
-    const response = await anthropic.messages.create({
+    // Stream so each server-side search is logged as it happens — a single
+    // request can run for minutes, and without this the Actions log is silent
+    // long enough to look hung.
+    const stream = anthropic.messages.stream({
       model: 'claude-sonnet-4-6',
       max_tokens: 4096,
       system: systemPrompt,
@@ -162,6 +165,18 @@ If no matches are found, return an empty array: []`;
       ],
       messages,
     });
+
+    stream.on('contentBlock', (block) => {
+      if (block.type === 'server_tool_use' && block.name === 'web_search') {
+        const query = (block.input as { query?: string }).query ?? '';
+        console.log(`  🔎 searching: ${query}`);
+      } else if (block.type === 'web_search_tool_result') {
+        const count = Array.isArray(block.content) ? block.content.length : 0;
+        console.log(`     ↳ ${count} result(s)`);
+      }
+    });
+
+    const response = await stream.finalMessage();
 
     console.log(`  iteration ${i + 1}: stop_reason=${response.stop_reason}, blocks=${response.content.length}`);
 

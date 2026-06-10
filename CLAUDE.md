@@ -65,6 +65,8 @@ To test the Spotify token refresh without running the full agent, you can call `
 
 `discoverConcertShows()` in `agent.ts` runs a loop capped at `MAX_AGENT_ITERATIONS` (currently 20). In practice Claude finishes in 3–8 web searches and returns `end_turn`.
 
+The request is streamed solely for progress logging — each server-side search is printed as it happens, because a single request can run for minutes and a silent Actions log looks hung.
+
 `web_search_20260209` is a server-side tool — Anthropic executes the searches, not the client. When `stop_reason === 'pause_turn'` (the server-side search loop hit its iteration cap), the loop re-sends with the assistant content appended and the server resumes. When `stop_reason === 'end_turn'`, the final text block is parsed as a JSON array of show objects.
 
 The response format Claude is asked to return:
