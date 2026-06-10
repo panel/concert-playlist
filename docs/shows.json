@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-06-10T03:19:03.839Z",
+  "artists": [
+    {
+      "name": "Jane Remover",
+      "spotifyId": "2rLGlNI6htigNxx172qxLu",
+      "shows": [
+        {
+          "artist": "Jane Remover",
+          "venue": "Metro Chicago",
+          "date": "2026-06-12",
+          "url": "https://metrochicago.com/events/"
+        },
+        {
+          "artist": "Jane Remover",
+          "venue": "Metro Chicago",
+          "date": "2026-06-13",
+          "url": "https://metrochicago.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Deer Tick",
+      "spotifyId": "3rT8xTwSOMDURtWpPyoKIO",
+      "shows": [
+        {
+          "artist": "Deer Tick",
+          "venue": "Thalia Hall",
+          "date": "2026-06-16",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Kim Gordon",
+      "spotifyId": "3n8qeKQViV1waeCzZmS4Tx",
+      "shows": [
+        {
+          "artist": "Kim Gordon",
+          "venue": "Metro Chicago",
+          "date": "2026-06-23",
+          "url": "https://metrochicago.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Kurt Vile",
+      "spotifyId": "5gspAQIAH8nJUrMYgXjCJ2",
+      "shows": [
+        {
+          "artist": "Kurt Vile",
+          "venue": "Salt Shed",
+          "date": "2026-06-26",
+          "url": "https://www.saltshedchicago.com/"
+        }
+      ]
+    }
+  ]
+}
