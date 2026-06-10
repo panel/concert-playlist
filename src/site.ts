@@ -57,7 +57,7 @@ function renderShow(show: Show): string {
 function renderArtist(entry: ArtistEntry, index: number): string {
   const player = entry.spotifyId
     ? `<iframe src="https://open.spotify.com/embed/artist/${encodeURIComponent(entry.spotifyId)}?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: ${escapeHtml(entry.name)}"></iframe>`
     : `<p class="no-player">NOT ON SPOTIFY. TOO PUNK. SEE THEM LIVE.</p>`;
@@ -193,8 +193,15 @@ export function renderSite(artists: ArtistEntry[], generatedAt: Date): string {
     padding: 0.75rem;
     margin: 0;
   }
-  /* xerox the players: ink only */
-  iframe { border: 3px solid #0a0a0a; filter: grayscale(1) contrast(1.15); display: block; }
+  /* xerox the players: ink only. Black backing because the logged-out
+     "Preview" embed caps its card ~200px tall and leaves the rest of the
+     iframe transparent — backing turns that gap into an ink block. */
+  iframe {
+    border: 3px solid #0a0a0a;
+    background: #0a0a0a;
+    filter: grayscale(1) contrast(1.15);
+    display: block;
+  }
 
   footer {
     margin-top: 4rem;

@@ -109,8 +109,15 @@
     padding: 0.75rem;
     margin: 0;
   }
-  /* xerox the players: ink only */
-  iframe { border: 3px solid #0a0a0a; filter: grayscale(1) contrast(1.15); display: block; }
+  /* xerox the players: ink only. Black backing because the logged-out
+     "Preview" embed caps its card ~200px tall and leaves the rest of the
+     iframe transparent — backing turns that gap into an ink block. */
+  iframe {
+    border: 3px solid #0a0a0a;
+    background: #0a0a0a;
+    filter: grayscale(1) contrast(1.15);
+    display: block;
+  }
 
   footer {
     margin-top: 4rem;
@@ -138,7 +145,7 @@
         <li><span class="date">SAT, JUN 13</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3qkZBMz5JgmRN9u5wwhRC6?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: The Hold Steady"></iframe>
     </section>
@@ -150,7 +157,7 @@
         <li><span class="date">SAT, JUN 13</span> <a href="https://metrochicago.com/event/jane-remover/metro-chicago/chicago-illinois/" target="_blank" rel="noopener">METRO CHICAGO</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/2rLGlNI6htigNxx172qxLu?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Jane Remover"></iframe>
     </section>
@@ -161,7 +168,7 @@
         <li><span class="date">SAT, JUN 13</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3kbBWco9PZ5eSQsNScwG6U?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Built To Spill"></iframe>
     </section>
@@ -172,7 +179,7 @@
         <li><span class="date">SAT, JUN 13</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/5lJ4XQ2hlPlxACN7q3xKL1?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Titus Andronicus"></iframe>
     </section>
@@ -183,7 +190,7 @@
         <li><span class="date">SAT, JUN 13</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/34LdbFt5sVXKTJOzf1iExQ?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Bully"></iframe>
     </section>
@@ -194,7 +201,7 @@
         <li><span class="date">SUN, JUN 14</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3NqV2DJoAWsjl787bWaHW7?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Amyl and The Sniffers"></iframe>
     </section>
@@ -205,7 +212,7 @@
         <li><span class="date">SUN, JUN 14</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/5LeiYFiAx31mpoPKxdOLOm?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Party Dozen"></iframe>
     </section>
@@ -216,7 +223,7 @@
         <li><span class="date">TUE, JUN 16</span> <a href="https://www.thaliahallchicago.com/shows" target="_blank" rel="noopener">THALIA HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3rT8xTwSOMDURtWpPyoKIO?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Deer Tick"></iframe>
     </section>
@@ -227,7 +234,7 @@
         <li><span class="date">TUE, JUN 16</span> <a href="https://www.thaliahallchicago.com/shows" target="_blank" rel="noopener">THALIA HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/0iBeDti8V9DLGVPA2xHMeO?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Jobi Riccio"></iframe>
     </section>
@@ -239,7 +246,7 @@
         <li><span class="date">FRI, JUN 19</span> <a href="https://lh-st.com/shows/06-19-2026-the-hotelier/" target="_blank" rel="noopener">LINCOLN HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3kzNckjE5FzHQhe4pJiLKa?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: The Hotelier"></iframe>
     </section>
@@ -250,7 +257,7 @@
         <li><span class="date">FRI, JUN 19</span> <a href="https://lh-st.com/shows/06-19-2026-the-hotelier/" target="_blank" rel="noopener">LINCOLN HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/0Kpf7PvEotzvndPhYwwZzb?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: The Ophelias"></iframe>
     </section>
@@ -261,7 +268,7 @@
         <li><span class="date">SAT, JUN 20</span> <a href="https://lh-st.com/shows/06-20-2026-prewn/" target="_blank" rel="noopener">SCHUBAS TAVERN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/1Sm5PqM25CcIBtKSvZz9iS?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Prewn"></iframe>
     </section>
@@ -272,7 +279,7 @@
         <li><span class="date">SUN, JUN 21</span> <a href="https://www.thaliahallchicago.com/shows" target="_blank" rel="noopener">THALIA HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/0tLaqkKW7K6tc3QF9SM0M8?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Tigers Jaw"></iframe>
     </section>
@@ -283,7 +290,7 @@
         <li><span class="date">SUN, JUN 21</span> <a href="https://www.thaliahallchicago.com/shows" target="_blank" rel="noopener">THALIA HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/6yoW6SfviQ5D4Wa5jGxh7f?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Pool Kids"></iframe>
     </section>
@@ -294,7 +301,7 @@
         <li><span class="date">SUN, JUN 21</span> <a href="https://www.thaliahallchicago.com/shows" target="_blank" rel="noopener">THALIA HALL</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/0JTGTWQ2CBQlQtAHb8zMWS?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Bleary Eyed"></iframe>
     </section>
@@ -305,7 +312,7 @@
         <li><span class="date">TUE, JUN 23</span> <a href="https://metrochicago.com/events/" target="_blank" rel="noopener">METRO CHICAGO</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3n8qeKQViV1waeCzZmS4Tx?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Kim Gordon"></iframe>
     </section>
@@ -316,7 +323,7 @@
         <li><span class="date">TUE, JUN 23</span> <a href="https://www.emptybottle.com/" target="_blank" rel="noopener">EMPTY BOTTLE</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/7f5aAh94T4mdR5T8GxfTOE?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Dark Thoughts"></iframe>
     </section>
@@ -327,7 +334,7 @@
         <li><span class="date">FRI, JUN 26</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/5gspAQIAH8nJUrMYgXjCJ2?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Kurt Vile"></iframe>
     </section>
@@ -338,7 +345,7 @@
         <li><span class="date">FRI, JUN 26</span> <a href="https://www.saltshedchicago.com/" target="_blank" rel="noopener">SALT SHED</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/3x0LgZSPgNh91O6NBMtqTs?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: The Sadies"></iframe>
     </section>
@@ -349,7 +356,7 @@
         <li><span class="date">TUE, JUN 30</span> <a href="https://www.beatkitchen.com/calendar/" target="_blank" rel="noopener">BEAT KITCHEN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/5iMYu8Sj8dZEDsWJxSFwPP?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Jhariah"></iframe>
     </section>
@@ -360,7 +367,7 @@
         <li><span class="date">FRI, JUL 3</span> <a href="https://www.beatkitchen.com/calendar/" target="_blank" rel="noopener">BEAT KITCHEN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/2jx2RBKuffYiRLX3q9d253?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: tenmonthsummer"></iframe>
     </section>
@@ -371,7 +378,7 @@
         <li><span class="date">FRI, JUL 3</span> <a href="https://www.beatkitchen.com/calendar/" target="_blank" rel="noopener">BEAT KITCHEN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/2NjNeRA9xtah9fJGCQOxNf?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Palette Knife"></iframe>
     </section>
@@ -382,7 +389,7 @@
         <li><span class="date">FRI, JUL 3</span> <a href="https://www.beatkitchen.com/calendar/" target="_blank" rel="noopener">BEAT KITCHEN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/6kvtwZKMwZZopBGqlHZPNE?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Mud Whale"></iframe>
     </section>
@@ -393,7 +400,7 @@
         <li><span class="date">FRI, JUL 3</span> <a href="https://www.beatkitchen.com/calendar/" target="_blank" rel="noopener">BEAT KITCHEN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/0jVOavowJ5X4ooKXX5PcM1?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Arcadia Grey"></iframe>
     </section>
@@ -404,7 +411,7 @@
         <li><span class="date">FRI, JUL 3</span> <a href="https://www.beatkitchen.com/calendar/" target="_blank" rel="noopener">BEAT KITCHEN</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/7n7y0AnByWuVtJbx99EYyw?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: Bottom Bracket"></iframe>
     </section>
@@ -415,7 +422,7 @@
         <li><span class="date">TUE, JUL 7</span> <a href="https://www.parkwestchicago.com/" target="_blank" rel="noopener">PARK WEST</a></li>
       </ul>
       <iframe src="https://open.spotify.com/embed/artist/2ZfogSsOWP4mVfEqfpLXCt?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" loading="lazy" allowfullscreen
+        width="100%" height="232" frameborder="0" loading="lazy" allowfullscreen
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         title="Spotify player: The Church"></iframe>
     </section>
