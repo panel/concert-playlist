@@ -23,7 +23,7 @@ const PLAYLIST_NAME = '🎸 Chicago Shows';
 const TRACKS_PER_ARTIST = 3;
 const MAX_PLAYLIST_TRACKS = 50;
 const MAX_AGENT_ITERATIONS = 20; // safety ceiling for the agentic loop
-const MAX_WEB_SEARCHES = 20; // hard cap enforced server-side via the tool's max_uses
+const MAX_WEB_SEARCHES = 30; // hard cap enforced server-side via the tool's max_uses
 
 // Each venue lists its official site so Claude can target searches at the
 // right domain (important for small venues with thin aggregator coverage).
@@ -122,9 +122,20 @@ ${CHICAGO_VENUES.map((v) => `- ${v.name}${v.site ? ` (${v.site})` : ''}`).join('
    shows 2026" or "[venue site] calendar". Do not re-search a venue to confirm
    details.
 2. For each show, note the performing artist(s).
-3. Evaluate each artist against the taste profile. Include if they share genre DNA
-   (indie rock, emo, folk-punk, alt-country, dream pop, slowcore, etc.) — be generous.
-4. Return one entry per show. The same artist may appear more than once if they
+3. Evaluate each artist against the taste profile. Match LIBERALLY — the user
+   would much rather discover a borderline show than miss a good one, and a
+   short list is a failure mode. Include any artist in or adjacent to:
+   midwest emo, emo revival, punk, pop-punk, folk-punk, hardcore, post-hardcore,
+   post-punk, post-rock, screamo, shoegaze, indie rock, indie pop, slowcore,
+   alt-country, dream pop, garage rock, noise rock, math rock.
+   The taste profile is a signal, not a filter — an artist does not need to
+   resemble a specific profile artist to qualify, just to live somewhere in
+   this broad space.
+4. Include openers and support acts as their own entries, not just headliners.
+5. When unsure, INCLUDE. Only exclude artists clearly outside the space:
+   mainstream pop, EDM/DJ sets, hip-hop, jazz, metal without punk/hardcore roots,
+   tribute and cover acts.
+6. Return one entry per show. The same artist may appear more than once if they
    play multiple dates or venues.
 
 ## Output format
