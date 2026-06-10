@@ -8,6 +8,7 @@
 //   4. Fetch top tracks for each matched artist from Spotify
 //   5. Replace playlist contents
 
+import 'dotenv/config';
 import Anthropic from '@anthropic-ai/sdk';
 import { SpotifyClient } from './spotify.js';
 import type { Artist } from './spotify.js';
@@ -19,19 +20,22 @@ const TRACKS_PER_ARTIST = 3;
 const MAX_PLAYLIST_TRACKS = 50;
 const MAX_AGENT_ITERATIONS = 20; // safety ceiling for the agentic loop
 
-const CHICAGO_VENUES = [
-  'Empty Bottle',
-  'Schubas Tavern',
-  'Lincoln Hall',
-  'Metro Chicago',
-  'Thalia Hall',
-  'Hideout Inn',
-  'Subterranean Chicago',
-  'Bottom Lounge',
-  'Park West',
-  'Riviera Theatre',
-  'Wicker Park Fest stages',
-  'Double Door Chicago',
+// Each venue lists its official site so Claude can target searches at the
+// right domain (important for small venues with thin aggregator coverage).
+const CHICAGO_VENUES: { name: string; site?: string }[] = [
+  { name: 'Lincoln Hall', site: 'lh-st.com' },
+  { name: 'Schubas Tavern', site: 'lh-st.com' },
+  { name: 'Beat Kitchen', site: 'beatkitchen.com' },
+  { name: 'Subterranean', site: 'subt.net' },
+  { name: 'Cobra Lounge', site: 'cobralounge.com/events' },
+  { name: 'Bottom Lounge', site: 'bottomlounge.com' },
+  { name: 'Salt Shed', site: 'saltshedchicago.com' },
+  { name: 'Empty Bottle', site: 'emptybottle.com' },
+  { name: 'Metro Chicago', site: 'metrochicago.com' },
+  { name: 'Thalia Hall', site: 'thaliahallchicago.com' },
+  { name: 'The Hideout', site: 'hideoutchicago.com' },
+  { name: 'Park West', site: 'parkwestchicago.com' },
+  { name: 'Riviera Theatre', site: 'rivieratheatre.com' },
 ];
 
 // ─── Taste profile builder ───────────────────────────────────────────────────
@@ -49,6 +53,28 @@ function buildTasteProfile(shortTerm: Artist[], mediumTerm: Artist[]): string {
     .slice(0, 30)
     .map((a) => `- ${a.name} (genres: ${a.genres.slice(0, 3).join(', ') || 'unknown'})`)
     .join('\n');
+}
+
+/**
+ * Parses Claude's final text into an array of artist names. Tolerates markdown
+ * fences and surrounding explanation text; returns null if no valid JSON array
+ * of strings can be extracted.
+ */
+function parseArtistList(text: string): string[] | null {
+  const clean = text.replace(/```(?:json)?|```/g, '').trim();
+
+  for (const candidate of [clean, clean.match(/\[[\s\S]*\]/)?.[0]]) {
+    if (!candidate) continue;
+    try {
+      const parsed: unknown = JSON.parse(candidate);
+      if (Array.isArray(parsed) && parsed.every((a) => typeof a === 'string')) {
+        return parsed;
+      }
+    } catch {
+      // fall through to the next candidate
+    }
+  }
+  return null;
 }
 
 // ─── Concert discovery via Anthropic ─────────────────────────────────────────
@@ -72,11 +98,12 @@ Today is ${today}. Your job is to find upcoming live shows in Chicago over the n
 ${tasteProfile}
 
 ## Target venues
-${CHICAGO_VENUES.map((v) => `- ${v}`).join('\n')}
+${CHICAGO_VENUES.map((v) => `- ${v.name}${v.site ? ` (${v.site})` : ''}`).join('\n')}
 
 ## Instructions
-1. Search each venue's website or listings for upcoming shows.
-   Good search queries: "[Venue Name] Chicago upcoming shows 2026", "[Venue] schedule June July 2026"
+1. Search each venue's website or listings for upcoming shows. Prefer the venue's
+   official site listed above. Good search queries: "[Venue Name] Chicago upcoming
+   shows 2026", "[Venue] schedule June July 2026", "[venue site] calendar"
 2. For each show, note the performing artist(s).
 3. Evaluate each artist against the taste profile. Include if they share genre DNA
    (indie rock, emo, folk-punk, alt-country, dream pop, slowcore, etc.) — be generous.
@@ -99,18 +126,17 @@ If no matches are found, return an empty array: []`;
 
   for (let i = 0; i < MAX_AGENT_ITERATIONS; i++) {
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-6',
       max_tokens: 4096,
       system: systemPrompt,
-      // web_search_20250305 is a server-side tool — Anthropic executes searches
-      // on its infrastructure; no client-side tool execution needed.
-      // Cast via unknown: the SDK's Tool type requires input_schema, but
-      // built-in tools are exempt from that requirement at runtime.
+      // web_search is a server-side tool — Anthropic executes searches on its
+      // infrastructure; no client-side tool execution needed. The _20260209
+      // version filters results server-side before they reach the context.
       tools: [
         {
-          type: 'web_search_20250305',
+          type: 'web_search_20260209',
           name: 'web_search',
-        } as unknown as Anthropic.Messages.Tool,
+        },
       ],
       messages,
     });
@@ -126,24 +152,19 @@ If no matches are found, return an empty array: []`;
         .map((b) => b.text)
         .join('');
 
-      // Strip any accidental markdown fences
-      const clean = text.replace(/```(?:json)?|```/g, '').trim();
-
-      try {
-        const artists = JSON.parse(clean) as string[];
-        console.log(`  ✅ Claude returned ${artists.length} matched artists`);
-        return artists;
-      } catch {
+      const artists = parseArtistList(text);
+      if (artists === null) {
         console.error('  ❌ Failed to parse artist list from Claude response:');
         console.error('  Raw text:', text);
         return [];
       }
+      console.log(`  ✅ Claude returned ${artists.length} matched artists`);
+      return artists;
     }
 
-    if (response.stop_reason === 'tool_use') {
-      // web_search is server-side; Anthropic handles execution.
-      // The results are embedded in the response content as server_tool_result blocks.
-      // We just need to continue the loop without injecting tool_result messages.
+    if (response.stop_reason === 'pause_turn') {
+      // The server-side web_search loop hit its iteration cap mid-turn.
+      // Re-sending with the assistant content appended (done above) resumes it.
       continue;
     }
 
@@ -151,6 +172,9 @@ If no matches are found, return an empty array: []`;
       console.warn('  ⚠️ Hit max_tokens mid-response — consider raising max_tokens');
       break;
     }
+
+    console.warn(`  ⚠️ Unexpected stop_reason: ${response.stop_reason}`);
+    break;
   }
 
   console.warn('⚠️ Agent loop exhausted without end_turn');
@@ -220,6 +244,11 @@ async function main() {
     trackUris.push(...selected);
 
     console.log(`   ✓ ${artist.name}: ${selected.length} track(s)`);
+  }
+
+  if (trackUris.length === 0) {
+    console.log('\n⚠️  No matched artists resolved to Spotify tracks. Playlist unchanged.');
+    return;
   }
 
   // ── Step 4: Update playlist ──────────────────────────────────────────────
