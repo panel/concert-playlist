@@ -23,6 +23,7 @@ const PLAYLIST_NAME = '🎸 Chicago Shows';
 const TRACKS_PER_ARTIST = 3;
 const MAX_PLAYLIST_TRACKS = 50;
 const MAX_AGENT_ITERATIONS = 20; // safety ceiling for the agentic loop
+const MAX_WEB_SEARCHES = 20; // hard cap enforced server-side via the tool's max_uses
 
 // Each venue lists its official site so Claude can target searches at the
 // right domain (important for small venues with thin aggregator coverage).
@@ -114,9 +115,12 @@ ${tasteProfile}
 ${CHICAGO_VENUES.map((v) => `- ${v.name}${v.site ? ` (${v.site})` : ''}`).join('\n')}
 
 ## Instructions
-1. Search each venue's website or listings for upcoming shows. Prefer the venue's
-   official site listed above. Good search queries: "[Venue Name] Chicago upcoming
-   shows 2026", "[Venue] schedule June July 2026", "[venue site] calendar"
+1. Search venue listings for upcoming shows. You have a hard budget of
+   ${MAX_WEB_SEARCHES} searches total — spend it wisely: one search per venue at
+   most, skip a venue rather than retrying failed queries, and prefer queries
+   that cover a full calendar in one shot, e.g. "[Venue Name] Chicago upcoming
+   shows 2026" or "[venue site] calendar". Do not re-search a venue to confirm
+   details.
 2. For each show, note the performing artist(s).
 3. Evaluate each artist against the taste profile. Include if they share genre DNA
    (indie rock, emo, folk-punk, alt-country, dream pop, slowcore, etc.) — be generous.
@@ -146,6 +150,8 @@ If no matches are found, return an empty array: []`;
 
   console.log('🤖 Starting Anthropic agentic loop...');
 
+  let searchCount = 0;
+
   for (let i = 0; i < MAX_AGENT_ITERATIONS; i++) {
     // Stream so each server-side search is logged as it happens — a single
     // request can run for minutes, and without this the Actions log is silent
@@ -161,6 +167,9 @@ If no matches are found, return an empty array: []`;
         {
           type: 'web_search_20260209',
           name: 'web_search',
+          // Server-side cap: once exhausted the tool returns max_uses_exceeded
+          // and Claude must finalize with what it has.
+          max_uses: MAX_WEB_SEARCHES,
         },
       ],
       messages,
@@ -168,8 +177,9 @@ If no matches are found, return an empty array: []`;
 
     stream.on('contentBlock', (block) => {
       if (block.type === 'server_tool_use' && block.name === 'web_search') {
+        searchCount++;
         const query = (block.input as { query?: string }).query ?? '';
-        console.log(`  🔎 searching: ${query}`);
+        console.log(`  🔎 search ${searchCount}/${MAX_WEB_SEARCHES}: ${query}`);
       } else if (block.type === 'web_search_tool_result') {
         const count = Array.isArray(block.content) ? block.content.length : 0;
         console.log(`     ↳ ${count} result(s)`);
@@ -202,6 +212,18 @@ If no matches are found, return an empty array: []`;
     if (response.stop_reason === 'pause_turn') {
       // The server-side web_search loop hit its iteration cap mid-turn.
       // Re-sending with the assistant content appended (done above) resumes it.
+      //
+      // max_uses is enforced per request, so a resumed turn gets a fresh
+      // allowance — without this client-side check the total could grow
+      // unbounded across pause_turn continuations.
+      if (searchCount >= MAX_WEB_SEARCHES) {
+        console.log(`  ⛔ Search budget exhausted (${searchCount}) — asking Claude to finalize`);
+        messages.push({
+          role: 'user',
+          content:
+            'Your search budget is exhausted. Do not search again. Based on what you have already found, return the final JSON array of shows now.',
+        });
+      }
       continue;
     }
 

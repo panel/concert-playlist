@@ -67,6 +67,8 @@ To test the Spotify token refresh without running the full agent, you can call `
 
 The request is streamed solely for progress logging — each server-side search is printed as it happens, because a single request can run for minutes and a silent Actions log looks hung.
 
+Searches are capped at `MAX_WEB_SEARCHES` three ways: the tool's `max_uses` (server-side, per request), a budget instruction in the system prompt, and a client-side counter that injects a "finalize now" user message if a `pause_turn` continuation would otherwise refresh the per-request allowance.
+
 `web_search_20260209` is a server-side tool — Anthropic executes the searches, not the client. When `stop_reason === 'pause_turn'` (the server-side search loop hit its iteration cap), the loop re-sends with the assistant content appended and the server resumes. When `stop_reason === 'end_turn'`, the final text block is parsed as a JSON array of show objects.
 
 The response format Claude is asked to return:
@@ -84,6 +86,7 @@ The response format Claude is asked to return:
 | Which venues to search | `CHICAGO_VENUES` array in `agent.ts` |
 | Genre matching criteria | System prompt in `discoverConcertShows()` |
 | Site look & feel | Inline CSS / templates in `src/site.ts` |
+| Web search budget | `MAX_WEB_SEARCHES` constant in `agent.ts` |
 | Tracks per artist | `TRACKS_PER_ARTIST` constant in `agent.ts` |
 | Max playlist size | `MAX_PLAYLIST_TRACKS` constant in `agent.ts` |
 | How many top artists to pull | `limit` param in `getTopArtists()` calls |
