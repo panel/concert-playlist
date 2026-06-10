@@ -4,14 +4,18 @@
 // Flow:
 //   1. Pull taste profile from Spotify (top artists, short + medium term)
 //   2. Send to Claude with web_search to discover upcoming Chicago concerts
-//   3. Claude reasons over artist/genre fit, returns a JSON list
+//   3. Claude reasons over artist/genre fit, returns a JSON list of shows
 //   4. Fetch top tracks for each matched artist from Spotify
-//   5. Replace playlist contents
+//   5. Write the static site to docs/ (committed by the workflow → GitHub Pages)
+//   6. Replace playlist contents
 
 import 'dotenv/config';
+import { mkdir, writeFile } from 'node:fs/promises';
 import Anthropic from '@anthropic-ai/sdk';
 import { SpotifyClient } from './spotify.js';
 import type { Artist } from './spotify.js';
+import { renderSite } from './site.js';
+import type { ArtistEntry, Show } from './site.js';
 
 // ─── Config ─────────────────────────────────────────────────────────────────
 
@@ -56,19 +60,28 @@ function buildTasteProfile(shortTerm: Artist[], mediumTerm: Artist[]): string {
 }
 
 /**
- * Parses Claude's final text into an array of artist names. Tolerates markdown
+ * Parses Claude's final text into an array of shows. Tolerates markdown
  * fences and surrounding explanation text; returns null if no valid JSON array
- * of strings can be extracted.
+ * of show objects can be extracted. Malformed entries within an otherwise
+ * valid array are dropped rather than failing the whole parse.
  */
-function parseArtistList(text: string): string[] | null {
+function parseShowList(text: string): Show[] | null {
   const clean = text.replace(/```(?:json)?|```/g, '').trim();
+
+  const isShow = (v: unknown): v is Show =>
+    typeof v === 'object' &&
+    v !== null &&
+    typeof (v as Show).artist === 'string' &&
+    typeof (v as Show).venue === 'string' &&
+    typeof (v as Show).date === 'string' &&
+    ((v as Show).url === undefined || typeof (v as Show).url === 'string');
 
   for (const candidate of [clean, clean.match(/\[[\s\S]*\]/)?.[0]]) {
     if (!candidate) continue;
     try {
       const parsed: unknown = JSON.parse(candidate);
-      if (Array.isArray(parsed) && parsed.every((a) => typeof a === 'string')) {
-        return parsed;
+      if (Array.isArray(parsed)) {
+        return parsed.filter(isShow);
       }
     } catch {
       // fall through to the next candidate
@@ -79,10 +92,10 @@ function parseArtistList(text: string): string[] | null {
 
 // ─── Concert discovery via Anthropic ─────────────────────────────────────────
 
-async function discoverConcertArtists(
+async function discoverConcertShows(
   anthropic: Anthropic,
   tasteProfile: string,
-): Promise<string[]> {
+): Promise<Show[]> {
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -107,18 +120,27 @@ ${CHICAGO_VENUES.map((v) => `- ${v.name}${v.site ? ` (${v.site})` : ''}`).join('
 2. For each show, note the performing artist(s).
 3. Evaluate each artist against the taste profile. Include if they share genre DNA
    (indie rock, emo, folk-punk, alt-country, dream pop, slowcore, etc.) — be generous.
-4. Deduplicate — return each artist once even if they appear at multiple venues.
+4. Return one entry per show. The same artist may appear more than once if they
+   play multiple dates or venues.
 
 ## Output format
-Return ONLY a valid JSON array of matched artist name strings. No markdown fences, no explanation.
-Example: ["Slaughter Beach Dog", "Soccer Mommy", "Ratboys", "Wednesday"]
+Return ONLY a valid JSON array of show objects. No markdown fences, no explanation.
+Each object has:
+- "artist": performing artist name (string)
+- "venue": venue name (string)
+- "date": show date in YYYY-MM-DD format (string)
+- "url": event or ticket page URL if you found one (string, optional)
+
+Example:
+[{"artist": "Slaughter Beach Dog", "venue": "Thalia Hall", "date": "2026-06-19", "url": "https://thaliahallchicago.com/events/sbd"},
+ {"artist": "Ratboys", "venue": "Empty Bottle", "date": "2026-06-27"}]
 
 If no matches are found, return an empty array: []`;
 
   const messages: Anthropic.MessageParam[] = [
     {
       role: 'user',
-      content: `Search Chicago venue listings for the next 4 weeks and return a JSON array of artist names that match my taste profile.`,
+      content: `Search Chicago venue listings for the next 4 weeks and return a JSON array of shows by artists that match my taste profile.`,
     },
   ];
 
@@ -152,14 +174,14 @@ If no matches are found, return an empty array: []`;
         .map((b) => b.text)
         .join('');
 
-      const artists = parseArtistList(text);
-      if (artists === null) {
-        console.error('  ❌ Failed to parse artist list from Claude response:');
+      const shows = parseShowList(text);
+      if (shows === null) {
+        console.error('  ❌ Failed to parse show list from Claude response:');
         console.error('  Raw text:', text);
         return [];
       }
-      console.log(`  ✅ Claude returned ${artists.length} matched artists`);
-      return artists;
+      console.log(`  ✅ Claude returned ${shows.length} matched shows`);
+      return shows;
     }
 
     if (response.stop_reason === 'pause_turn') {
@@ -215,49 +237,73 @@ async function main() {
   const tasteProfile = buildTasteProfile(shortTerm, mediumTerm);
   console.log(`   Built from ${shortTerm.length} short-term + ${mediumTerm.length} medium-term artists`);
 
-  // ── Step 2: Discover matching concert artists ────────────────────────────
+  // ── Step 2: Discover matching concert shows ──────────────────────────────
   console.log('\n🔍 Discovering upcoming Chicago concerts...');
-  const matchedArtists = await discoverConcertArtists(anthropic, tasteProfile);
+  const shows = await discoverConcertShows(anthropic, tasteProfile);
 
-  if (matchedArtists.length === 0) {
-    console.log('\n⚠️  No matching artists found this week. Playlist unchanged.');
+  if (shows.length === 0) {
+    console.log('\n⚠️  No matching shows found this week. Playlist and site unchanged.');
     return;
   }
 
-  console.log(`\n🎤 Matched artists: ${matchedArtists.join(', ')}`);
+  // Group shows by artist, earliest show first
+  shows.sort((a, b) => a.date.localeCompare(b.date));
+  const byArtist = new Map<string, Show[]>();
+  for (const show of shows) {
+    const key = show.artist.trim();
+    byArtist.set(key, [...(byArtist.get(key) ?? []), show]);
+  }
 
-  // ── Step 3: Fetch top tracks for each matched artist ─────────────────────
+  console.log(`\n🎤 Matched artists: ${[...byArtist.keys()].join(', ')}`);
+
+  // ── Step 3: Resolve artists on Spotify and collect top tracks ────────────
   console.log('\n🎵 Fetching tracks from Spotify...');
   const trackUris: string[] = [];
+  const artistEntries: ArtistEntry[] = [];
 
-  for (const artistName of matchedArtists) {
-    if (trackUris.length >= MAX_PLAYLIST_TRACKS) break;
-
+  for (const [artistName, artistShows] of byArtist) {
     const artist = await spotify.searchArtist(artistName);
+    artistEntries.push({
+      name: artist?.name ?? artistName,
+      spotifyId: artist?.id ?? null,
+      shows: artistShows,
+    });
+
     if (!artist) {
       console.log(`   ⚠️  Not found on Spotify: "${artistName}"`);
       continue;
     }
 
-    const tracks = await spotify.getArtistTopTracks(artist.id);
-    const selected = tracks.slice(0, TRACKS_PER_ARTIST).map((t) => t.uri);
-    trackUris.push(...selected);
-
-    console.log(`   ✓ ${artist.name}: ${selected.length} track(s)`);
+    if (trackUris.length < MAX_PLAYLIST_TRACKS) {
+      const tracks = await spotify.getArtistTopTracks(artist.id);
+      const selected = tracks.slice(0, TRACKS_PER_ARTIST).map((t) => t.uri);
+      trackUris.push(...selected);
+      console.log(`   ✓ ${artist.name}: ${selected.length} track(s)`);
+    }
   }
+
+  // ── Step 4: Write the static site (docs/ → GitHub Pages) ─────────────────
+  console.log('\n🌐 Writing static site to docs/...');
+  await mkdir('docs', { recursive: true });
+  await writeFile('docs/index.html', renderSite(artistEntries, new Date()));
+  await writeFile(
+    'docs/shows.json',
+    JSON.stringify({ generatedAt: new Date().toISOString(), artists: artistEntries }, null, 2),
+  );
+  console.log(`   ✓ docs/index.html (${artistEntries.length} artists, ${shows.length} shows)`);
 
   if (trackUris.length === 0) {
     console.log('\n⚠️  No matched artists resolved to Spotify tracks. Playlist unchanged.');
     return;
   }
 
-  // ── Step 4: Update playlist ──────────────────────────────────────────────
+  // ── Step 5: Update playlist ──────────────────────────────────────────────
   console.log(`\n📝 Updating "${PLAYLIST_NAME}"...`);
   const playlistId = await spotify.getOrCreatePlaylist(PLAYLIST_NAME);
   const finalUris = trackUris.slice(0, MAX_PLAYLIST_TRACKS);
   await spotify.replacePlaylistTracks(playlistId, finalUris);
 
-  console.log(`\n✅ Done! ${finalUris.length} tracks from ${matchedArtists.length} artists`);
+  console.log(`\n✅ Done! ${finalUris.length} tracks from ${byArtist.size} artists`);
   console.log(`   https://open.spotify.com/playlist/${playlistId}`);
 }
 
