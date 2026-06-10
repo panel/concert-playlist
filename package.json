@@ -1,0 +1,20 @@
+{
+  "name": "concert-playlist",
+  "version": "1.0.0",
+  "description": "Weekly agent that discovers Chicago concerts and builds a Spotify playlist",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/agent.js",
+    "dev": "tsx src/agent.ts",
+    "get-token": "tsx scripts/get-refresh-token.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}

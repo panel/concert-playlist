@@ -1,0 +1,37 @@
+name: Concert Playlist Update
+
+on:
+  schedule:
+    # Every Monday at 9am Chicago time (2pm UTC)
+    - cron: '0 14 * * 1'
+  workflow_dispatch: # Allow manual run from GitHub UI
+
+jobs:
+  update-playlist:
+    name: Discover concerts and update Spotify playlist
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run agent
+        run: node dist/agent.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
