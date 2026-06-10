@@ -48,6 +48,8 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add docs
             git commit -m "Update concert site ($(date -u +%Y-%m-%d))"
+            # main may have moved while the agent ran; replay the site commit on top
+            git pull --rebase origin main
             git push
           else
             echo "No site changes to commit"
