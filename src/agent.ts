@@ -23,7 +23,9 @@ const PLAYLIST_NAME = '🎸 Chicago Shows';
 const TRACKS_PER_ARTIST = 3;
 const MAX_PLAYLIST_TRACKS = 50;
 const MAX_AGENT_ITERATIONS = 20; // safety ceiling for the agentic loop
-const MAX_WEB_SEARCHES = 30; // hard cap enforced server-side via the tool's max_uses
+// Hard cap enforced server-side via the tool's max_uses. Overridable without a
+// code change: set the MAX_WEB_SEARCHES repo Actions variable (or env var locally).
+const MAX_WEB_SEARCHES = Number(process.env.MAX_WEB_SEARCHES) || 30;
 
 // Each venue lists its official site so Claude can target searches at the
 // right domain (important for small venues with thin aggregator coverage).

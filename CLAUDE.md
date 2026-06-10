@@ -46,6 +46,8 @@ SPOTIFY_REFRESH_TOKEN      # Long-lived refresh token (see scripts/get-refresh-t
 
 All four are required at runtime. The agent validates their presence on startup and exits with a clear error if any are missing.
 
+Optional: `MAX_WEB_SEARCHES` overrides the search budget (default 30). In GitHub Actions it's a repository *variable* (not secret), passed through in the workflow's env block.
+
 In local dev, copy `.env.example` to `.env` and fill in values. `agent.ts` loads it via `import 'dotenv/config'`, so `npm run dev` picks it up automatically.
 
 In GitHub Actions, all four are stored as repository secrets.
@@ -86,7 +88,7 @@ The response format Claude is asked to return:
 | Which venues to search | `CHICAGO_VENUES` array in `agent.ts` |
 | Genre matching criteria | System prompt in `discoverConcertShows()` |
 | Site look & feel | Inline CSS / templates in `src/site.ts` |
-| Web search budget | `MAX_WEB_SEARCHES` constant in `agent.ts` |
+| Web search budget | `MAX_WEB_SEARCHES` repo Actions variable (falls back to constant in `agent.ts`) |
 | Tracks per artist | `TRACKS_PER_ARTIST` constant in `agent.ts` |
 | Max playlist size | `MAX_PLAYLIST_TRACKS` constant in `agent.ts` |
 | How many top artists to pull | `limit` param in `getTopArtists()` calls |
