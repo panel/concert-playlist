@@ -10,7 +10,7 @@
     "get-token": "tsx scripts/get-refresh-token.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
+    "@anthropic-ai/sdk": "^0.104.1",
     "dotenv": "^17.4.2"
   },
   "devDependencies": {

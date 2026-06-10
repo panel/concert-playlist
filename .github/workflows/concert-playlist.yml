@@ -2,7 +2,8 @@ name: Concert Playlist Update
 
 on:
   schedule:
-    # Every Monday at 9am Chicago time (2pm UTC)
+    # Every Monday at 2pm UTC — 9am Chicago during daylight time, 8am during
+    # standard time (GitHub cron is fixed UTC and does not track DST).
     - cron: '0 14 * * 1'
   workflow_dispatch: # Allow manual run from GitHub UI
 
