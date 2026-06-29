@@ -1,267 +1,39 @@
 {
-  "generatedAt": "2026-06-10T03:40:37.238Z",
+  "generatedAt": "2026-06-29T16:57:36.752Z",
   "artists": [
     {
-      "name": "The Hold Steady",
-      "spotifyId": "3qkZBMz5JgmRN9u5wwhRC6",
+      "name": "Fighting Godot",
+      "spotifyId": "5Xs4FLItx9hueBnbTWDUDF",
       "shows": [
         {
-          "artist": "The Hold Steady",
-          "venue": "Thalia Hall",
-          "date": "2026-06-11",
-          "url": "https://www.thaliahallchicago.com/shows"
-        },
-        {
-          "artist": "The Hold Steady",
-          "venue": "Empty Bottle",
-          "date": "2026-06-12",
-          "url": "https://www.emptybottle.com/"
-        },
-        {
-          "artist": "The Hold Steady",
-          "venue": "Salt Shed",
-          "date": "2026-06-13",
-          "url": "https://www.saltshedchicago.com/"
+          "artist": "Fighting Godot",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-01",
+          "url": "https://cobralounge.com/events/"
         }
       ]
     },
     {
-      "name": "Jane Remover",
-      "spotifyId": "2rLGlNI6htigNxx172qxLu",
+      "name": "Cinema Violence",
+      "spotifyId": "2vS8NgLYZMQ0xB7fiiuEfj",
       "shows": [
         {
-          "artist": "Jane Remover",
-          "venue": "Metro Chicago",
-          "date": "2026-06-12",
-          "url": "https://metrochicago.com/event/jane-remover/metro-chicago/chicago-illinois/"
-        },
-        {
-          "artist": "Jane Remover",
-          "venue": "Metro Chicago",
-          "date": "2026-06-13",
-          "url": "https://metrochicago.com/event/jane-remover/metro-chicago/chicago-illinois/"
+          "artist": "Cinema Violence",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-01",
+          "url": "https://cobralounge.com/events/"
         }
       ]
     },
     {
-      "name": "Built To Spill",
-      "spotifyId": "3kbBWco9PZ5eSQsNScwG6U",
+      "name": "Dead Petal",
+      "spotifyId": "2BhSKAW8SiNrZTRasvQV9Y",
       "shows": [
         {
-          "artist": "Built to Spill",
-          "venue": "Salt Shed",
-          "date": "2026-06-13",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "Titus Andronicus",
-      "spotifyId": "5lJ4XQ2hlPlxACN7q3xKL1",
-      "shows": [
-        {
-          "artist": "Titus Andronicus",
-          "venue": "Salt Shed",
-          "date": "2026-06-13",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "Bully",
-      "spotifyId": "34LdbFt5sVXKTJOzf1iExQ",
-      "shows": [
-        {
-          "artist": "Bully",
-          "venue": "Salt Shed",
-          "date": "2026-06-13",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "Amyl and The Sniffers",
-      "spotifyId": "3NqV2DJoAWsjl787bWaHW7",
-      "shows": [
-        {
-          "artist": "Amyl and the Sniffers",
-          "venue": "Salt Shed",
-          "date": "2026-06-14",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "Party Dozen",
-      "spotifyId": "5LeiYFiAx31mpoPKxdOLOm",
-      "shows": [
-        {
-          "artist": "Party Dozen",
-          "venue": "Salt Shed",
-          "date": "2026-06-14",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "Deer Tick",
-      "spotifyId": "3rT8xTwSOMDURtWpPyoKIO",
-      "shows": [
-        {
-          "artist": "Deer Tick",
-          "venue": "Thalia Hall",
-          "date": "2026-06-16",
-          "url": "https://www.thaliahallchicago.com/shows"
-        }
-      ]
-    },
-    {
-      "name": "Jobi Riccio",
-      "spotifyId": "0iBeDti8V9DLGVPA2xHMeO",
-      "shows": [
-        {
-          "artist": "Jobi Riccio",
-          "venue": "Thalia Hall",
-          "date": "2026-06-16",
-          "url": "https://www.thaliahallchicago.com/shows"
-        }
-      ]
-    },
-    {
-      "name": "The Hotelier",
-      "spotifyId": "3kzNckjE5FzHQhe4pJiLKa",
-      "shows": [
-        {
-          "artist": "The Hotelier",
-          "venue": "Lincoln Hall",
-          "date": "2026-06-18",
-          "url": "https://lh-st.com/shows/06-18-2026-the-hotelier/"
-        },
-        {
-          "artist": "The Hotelier",
-          "venue": "Lincoln Hall",
-          "date": "2026-06-19",
-          "url": "https://lh-st.com/shows/06-19-2026-the-hotelier/"
-        }
-      ]
-    },
-    {
-      "name": "The Ophelias",
-      "spotifyId": "0Kpf7PvEotzvndPhYwwZzb",
-      "shows": [
-        {
-          "artist": "The Ophelias",
-          "venue": "Lincoln Hall",
-          "date": "2026-06-19",
-          "url": "https://lh-st.com/shows/06-19-2026-the-hotelier/"
-        }
-      ]
-    },
-    {
-      "name": "Prewn",
-      "spotifyId": "1Sm5PqM25CcIBtKSvZz9iS",
-      "shows": [
-        {
-          "artist": "Prewn",
-          "venue": "Schubas Tavern",
-          "date": "2026-06-20",
-          "url": "https://lh-st.com/shows/06-20-2026-prewn/"
-        }
-      ]
-    },
-    {
-      "name": "Tigers Jaw",
-      "spotifyId": "0tLaqkKW7K6tc3QF9SM0M8",
-      "shows": [
-        {
-          "artist": "Tigers Jaw",
-          "venue": "Thalia Hall",
-          "date": "2026-06-21",
-          "url": "https://www.thaliahallchicago.com/shows"
-        }
-      ]
-    },
-    {
-      "name": "Pool Kids",
-      "spotifyId": "6yoW6SfviQ5D4Wa5jGxh7f",
-      "shows": [
-        {
-          "artist": "Pool Kids",
-          "venue": "Thalia Hall",
-          "date": "2026-06-21",
-          "url": "https://www.thaliahallchicago.com/shows"
-        }
-      ]
-    },
-    {
-      "name": "Bleary Eyed",
-      "spotifyId": "0JTGTWQ2CBQlQtAHb8zMWS",
-      "shows": [
-        {
-          "artist": "Bleary Eyed",
-          "venue": "Thalia Hall",
-          "date": "2026-06-21",
-          "url": "https://www.thaliahallchicago.com/shows"
-        }
-      ]
-    },
-    {
-      "name": "Kim Gordon",
-      "spotifyId": "3n8qeKQViV1waeCzZmS4Tx",
-      "shows": [
-        {
-          "artist": "Kim Gordon",
-          "venue": "Metro Chicago",
-          "date": "2026-06-23",
-          "url": "https://metrochicago.com/events/"
-        }
-      ]
-    },
-    {
-      "name": "Dark Thoughts",
-      "spotifyId": "7f5aAh94T4mdR5T8GxfTOE",
-      "shows": [
-        {
-          "artist": "Dark Thoughts",
-          "venue": "Empty Bottle",
-          "date": "2026-06-23",
-          "url": "https://www.emptybottle.com/"
-        }
-      ]
-    },
-    {
-      "name": "Kurt Vile",
-      "spotifyId": "5gspAQIAH8nJUrMYgXjCJ2",
-      "shows": [
-        {
-          "artist": "Kurt Vile",
-          "venue": "Salt Shed",
-          "date": "2026-06-26",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "The Sadies",
-      "spotifyId": "3x0LgZSPgNh91O6NBMtqTs",
-      "shows": [
-        {
-          "artist": "The Sadies",
-          "venue": "Salt Shed",
-          "date": "2026-06-26",
-          "url": "https://www.saltshedchicago.com/"
-        }
-      ]
-    },
-    {
-      "name": "Jhariah",
-      "spotifyId": "5iMYu8Sj8dZEDsWJxSFwPP",
-      "shows": [
-        {
-          "artist": "Jhariah",
-          "venue": "Beat Kitchen",
-          "date": "2026-06-30",
-          "url": "https://www.beatkitchen.com/calendar/"
+          "artist": "Dead Petal",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-01",
+          "url": "https://cobralounge.com/events/"
         }
       ]
     },
@@ -273,7 +45,7 @@
           "artist": "tenmonthsummer",
           "venue": "Beat Kitchen",
           "date": "2026-07-03",
-          "url": "https://www.beatkitchen.com/calendar/"
+          "url": "https://beatkitchen.com/"
         }
       ]
     },
@@ -285,19 +57,7 @@
           "artist": "Palette Knife",
           "venue": "Beat Kitchen",
           "date": "2026-07-03",
-          "url": "https://www.beatkitchen.com/calendar/"
-        }
-      ]
-    },
-    {
-      "name": "Mud Whale",
-      "spotifyId": "6kvtwZKMwZZopBGqlHZPNE",
-      "shows": [
-        {
-          "artist": "Mud Whale",
-          "venue": "Beat Kitchen",
-          "date": "2026-07-03",
-          "url": "https://www.beatkitchen.com/calendar/"
+          "url": "https://beatkitchen.com/"
         }
       ]
     },
@@ -309,7 +69,7 @@
           "artist": "Arcadia Grey",
           "venue": "Beat Kitchen",
           "date": "2026-07-03",
-          "url": "https://www.beatkitchen.com/calendar/"
+          "url": "https://beatkitchen.com/"
         }
       ]
     },
@@ -321,19 +81,619 @@
           "artist": "Bottom Bracket",
           "venue": "Beat Kitchen",
           "date": "2026-07-03",
-          "url": "https://www.beatkitchen.com/calendar/"
+          "url": "https://beatkitchen.com/"
         }
       ]
     },
     {
-      "name": "The Church",
-      "spotifyId": "2ZfogSsOWP4mVfEqfpLXCt",
+      "name": "Mud Whale",
+      "spotifyId": "6kvtwZKMwZZopBGqlHZPNE",
       "shows": [
         {
-          "artist": "The Church",
-          "venue": "Park West",
-          "date": "2026-07-07",
-          "url": "https://www.parkwestchicago.com/"
+          "artist": "Mud Whale",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://beatkitchen.com/"
+        }
+      ]
+    },
+    {
+      "name": "Any Two Words",
+      "spotifyId": "0vFpdm2mk6RPUlJrU5hDLY",
+      "shows": [
+        {
+          "artist": "Any Two Words",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://beatkitchen.com/"
+        }
+      ]
+    },
+    {
+      "name": "GAUNTLETS",
+      "spotifyId": "0S6fi3Pvh2an19SSUfvkoi",
+      "shows": [
+        {
+          "artist": "GAUNTLETS",
+          "venue": "Beat Kitchen",
+          "date": "2026-07-03",
+          "url": "https://beatkitchen.com/"
+        }
+      ]
+    },
+    {
+      "name": "Murder Medication",
+      "spotifyId": "40XTJIOXC7vlC4nyXcxER7",
+      "shows": [
+        {
+          "artist": "Murder Medication",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-03",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Confusion",
+      "spotifyId": "63hdBveUFteIBPQkDy9iFd",
+      "shows": [
+        {
+          "artist": "Confusion",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-03",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Burn The Rain",
+      "spotifyId": "4maNU6yiwwQtTVFBGdZebV",
+      "shows": [
+        {
+          "artist": "Burn The Rain",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-03",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Budget Cuts",
+      "spotifyId": null,
+      "shows": [
+        {
+          "artist": "Budget Cuts",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-10",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Family Medicine",
+      "spotifyId": "1waOm8Hia0QtnaZ1BDjH7i",
+      "shows": [
+        {
+          "artist": "Family Medicine",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-10",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Palace Guard",
+      "spotifyId": "6uxHgUrvz9pc4Mi6K7xb0K",
+      "shows": [
+        {
+          "artist": "Palace Guard",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-10",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Generacion Suicida",
+      "spotifyId": "4mviM2J8Dy8kE2RgEGqu6l",
+      "shows": [
+        {
+          "artist": "Generación Suicida",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-11",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "LOOSEY",
+      "spotifyId": "1FoT7J7IGM1b34GNr51VFB",
+      "shows": [
+        {
+          "artist": "Loosey",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-11",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Being As An Ocean",
+      "spotifyId": "7ML9AQvVVE3c5m0sx1PlmP",
+      "shows": [
+        {
+          "artist": "Being As An Ocean",
+          "venue": "Subterranean",
+          "date": "2026-07-15",
+          "url": "https://subt.net/"
+        }
+      ]
+    },
+    {
+      "name": "lowheaven",
+      "spotifyId": "0LCI5aIo6Wd80D1AzHEu0F",
+      "shows": [
+        {
+          "artist": "lowheaven",
+          "venue": "Subterranean",
+          "date": "2026-07-15",
+          "url": "https://subt.net/"
+        }
+      ]
+    },
+    {
+      "name": "Vanna",
+      "spotifyId": "7cXUCar1BPOeMI2qza9oa1",
+      "shows": [
+        {
+          "artist": "Vanna",
+          "venue": "Subterranean",
+          "date": "2026-07-15",
+          "url": "https://subt.net/"
+        }
+      ]
+    },
+    {
+      "name": "Jeff Rosenstock",
+      "spotifyId": "0wNZvrIMNUCs24G0wFg2D6",
+      "shows": [
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-16",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        },
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-17",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        },
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-18",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        },
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-19",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        },
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-21",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        },
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-22",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        },
+        {
+          "artist": "Jeff Rosenstock",
+          "venue": "Metro Chicago",
+          "date": "2026-07-25",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Good Luck",
+      "spotifyId": "3d7qVZN9v6jrSnTH9AH9B4",
+      "shows": [
+        {
+          "artist": "Good Luck",
+          "venue": "Metro Chicago",
+          "date": "2026-07-16",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Cape Fade",
+      "spotifyId": "6tPZR2QX72CgdjjG1fA9a8",
+      "shows": [
+        {
+          "artist": "Cape Fade",
+          "venue": "Subterranean",
+          "date": "2026-07-16",
+          "url": "https://subt.net/"
+        }
+      ]
+    },
+    {
+      "name": "Demo Division",
+      "spotifyId": "3W6URN7nUXNxONfatUmWJU",
+      "shows": [
+        {
+          "artist": "Demo Division",
+          "venue": "Subterranean",
+          "date": "2026-07-16",
+          "url": "https://subt.net/"
+        }
+      ]
+    },
+    {
+      "name": "Hex",
+      "spotifyId": null,
+      "shows": [
+        {
+          "artist": "Hex",
+          "venue": "Subterranean",
+          "date": "2026-07-16",
+          "url": "https://subt.net/"
+        }
+      ]
+    },
+    {
+      "name": "Man Man",
+      "spotifyId": "0zprAu7NrzRehc0Q0Jc7mL",
+      "shows": [
+        {
+          "artist": "Man Man",
+          "venue": "Lincoln Hall",
+          "date": "2026-07-16",
+          "url": "https://lh-st.com/shows/07-16-2026-man-man/"
+        }
+      ]
+    },
+    {
+      "name": "Death Valley Girls",
+      "spotifyId": "0EvAIYxDOmvxkCv35jfmS9",
+      "shows": [
+        {
+          "artist": "Death Valley Girls",
+          "venue": "Lincoln Hall",
+          "date": "2026-07-16",
+          "url": "https://lh-st.com/shows/07-16-2026-man-man/"
+        }
+      ]
+    },
+    {
+      "name": "NNAMDÏ",
+      "spotifyId": "6gACF5PEinqx3AzMLjiH90",
+      "shows": [
+        {
+          "artist": "NNAMDÏ",
+          "venue": "Metro Chicago",
+          "date": "2026-07-17",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "ABSENT SOUL",
+      "spotifyId": "7rb1lXbgqGRM8yrn0Onb5s",
+      "shows": [
+        {
+          "artist": "Absent Soul",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-17",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Bad Mouth",
+      "spotifyId": "1DFal7EA73ak6rkTwJ4Xv2",
+      "shows": [
+        {
+          "artist": "Bad Mouth",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-17",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Hoods",
+      "spotifyId": "7tU9NKKHZgxHCDpzke7JS2",
+      "shows": [
+        {
+          "artist": "Hoods",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-17",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Pool Hall",
+      "spotifyId": "7i0ia7bszH1mKVdaQ7fBq5",
+      "shows": [
+        {
+          "artist": "Pool Hall",
+          "venue": "Lincoln Hall",
+          "date": "2026-07-17",
+          "url": "https://lh-st.com/shows/07-17-2026-pool-hall/"
+        }
+      ]
+    },
+    {
+      "name": "The Orchard",
+      "spotifyId": "7G8WZKB1AoRMxhx7A5JXVm",
+      "shows": [
+        {
+          "artist": "The Orchard",
+          "venue": "Lincoln Hall",
+          "date": "2026-07-17",
+          "url": "https://lh-st.com/shows/07-17-2026-pool-hall/"
+        }
+      ]
+    },
+    {
+      "name": "Billy Joel Jr.",
+      "spotifyId": "2RxUmWQ4m0DqpJVtZAdca8",
+      "shows": [
+        {
+          "artist": "Billy Joel Jr.",
+          "venue": "Lincoln Hall",
+          "date": "2026-07-17",
+          "url": "https://lh-st.com/shows/07-17-2026-pool-hall/"
+        }
+      ]
+    },
+    {
+      "name": "Saintseneca",
+      "spotifyId": "5x3hUNIfDPxP1Kr0ZaGs64",
+      "shows": [
+        {
+          "artist": "Saintseneca",
+          "venue": "Metro Chicago",
+          "date": "2026-07-18",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Wavves",
+      "spotifyId": "6bUJpbekaIlq2fT5FMV2mQ",
+      "shows": [
+        {
+          "artist": "Wavves",
+          "venue": "Bottom Lounge",
+          "date": "2026-07-18",
+          "url": "https://bottomlounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Bass Drum of Death",
+      "spotifyId": "5LtAyeDVOVcydj65LvgICY",
+      "shows": [
+        {
+          "artist": "Bass Drum of Death",
+          "venue": "Bottom Lounge",
+          "date": "2026-07-18",
+          "url": "https://bottomlounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Mustard Plug",
+      "spotifyId": "5UDSYxxqcF7prMrO2opRhu",
+      "shows": [
+        {
+          "artist": "Mustard Plug",
+          "venue": "Metro Chicago",
+          "date": "2026-07-19",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Fat, Evil Children",
+      "spotifyId": "6m207mDPCrde3IiOjJpuJg",
+      "shows": [
+        {
+          "artist": "Fat, Evil Children",
+          "venue": "Schubas Tavern",
+          "date": "2026-07-19",
+          "url": "https://lh-st.com/shows/07-19-2026-fat-evil-children/"
+        }
+      ]
+    },
+    {
+      "name": "Bren Lukens",
+      "spotifyId": null,
+      "shows": [
+        {
+          "artist": "Bren Lukens",
+          "venue": "Metro Chicago",
+          "date": "2026-07-21",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Boy Throb",
+      "spotifyId": "1bHaCRcLdMLvc9yLWqZhOK",
+      "shows": [
+        {
+          "artist": "Boy Throb",
+          "venue": "Lincoln Hall",
+          "date": "2026-07-21",
+          "url": "https://lh-st.com/shows/07-21-2026-boy-throb/"
+        }
+      ]
+    },
+    {
+      "name": "Styrofoam Winos",
+      "spotifyId": "08r2dWZati0h75m27fEXFO",
+      "shows": [
+        {
+          "artist": "Styrofoam Winos",
+          "venue": "The Hideout",
+          "date": "2026-07-21",
+          "url": "https://www.hideoutchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Beach Bunny",
+      "spotifyId": "2vnB6tuQMaQpORiRdvXF9H",
+      "shows": [
+        {
+          "artist": "Beach Bunny",
+          "venue": "Metro Chicago",
+          "date": "2026-07-22",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Kylesa",
+      "spotifyId": "7mO0JGOATH8fVHvgCdZsXh",
+      "shows": [
+        {
+          "artist": "Kylesa",
+          "venue": "Thalia Hall",
+          "date": "2026-07-24",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Yakuza",
+      "spotifyId": "5CXnC5TvKhnUERFcMkKgmz",
+      "shows": [
+        {
+          "artist": "Yakuza",
+          "venue": "Thalia Hall",
+          "date": "2026-07-24",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Cloud Rat",
+      "spotifyId": "6Fbes1fH0ZDS0XGjDx2YeG",
+      "shows": [
+        {
+          "artist": "Cloud Rat",
+          "venue": "Thalia Hall",
+          "date": "2026-07-24",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Lucero",
+      "spotifyId": "1MspPfENB9nzFGaagXmF7R",
+      "shows": [
+        {
+          "artist": "Lucero",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-24",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "all your friends",
+      "spotifyId": "5OTWpj6XtRKC3jIR1zFdKI",
+      "shows": [
+        {
+          "artist": "All Your Friends",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-24",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Dan Andriano",
+      "spotifyId": "7mJ2I2NTp6ezBOVOIwsS42",
+      "shows": [
+        {
+          "artist": "Dan Andriano",
+          "venue": "Metro Chicago",
+          "date": "2026-07-25",
+          "url": "https://metrochicago.com/jeffrosenstock/"
+        }
+      ]
+    },
+    {
+      "name": "Rx Bandits",
+      "spotifyId": "47bGK00zHXcGlUWfrE0dvi",
+      "shows": [
+        {
+          "artist": "Rx Bandits",
+          "venue": "Thalia Hall",
+          "date": "2026-07-25",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "Catbite",
+      "spotifyId": "5ZymRXV10TmuDovZVrx2RP",
+      "shows": [
+        {
+          "artist": "Catbite",
+          "venue": "Thalia Hall",
+          "date": "2026-07-25",
+          "url": "https://www.thaliahallchicago.com/shows"
+        }
+      ]
+    },
+    {
+      "name": "LSD and the Search for God",
+      "spotifyId": "2feOOr1Yjovo67byuxvjZv",
+      "shows": [
+        {
+          "artist": "LSD and the Search for God",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-25",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Astrobrite",
+      "spotifyId": "1nerWM6ECWXUcvDgGtBLcJ",
+      "shows": [
+        {
+          "artist": "Astrobrite",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-25",
+          "url": "https://cobralounge.com/events/"
+        }
+      ]
+    },
+    {
+      "name": "Twin Tribes",
+      "spotifyId": "7wxXs62y8Gjf6c6pxrnWIl",
+      "shows": [
+        {
+          "artist": "Twin Tribes",
+          "venue": "Cobra Lounge",
+          "date": "2026-07-26",
+          "url": "https://cobralounge.com/events/"
         }
       ]
     }
